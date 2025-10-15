@@ -15,7 +15,11 @@
       <div class="header">
         <h1>Calendar Generator</h1>
         <p>use this tool to create custom calendars for the month</p>
-        <form id="month-year-form" ">
+        <br />
+        <p>this is WIP, i am still developing it & evolving it as an idea</p>
+        <p>I have only collected data for September & October so far</p>
+        <br />
+        <form id="month-year-form">
           <label for="month-select">Month:</label>
           <select id="month-select">
             <option value="0">January</option>
@@ -44,9 +48,9 @@
         </form>
       </div>
       <div class="actions">
-        
-        <button id="random-color-btn">Change Colors</button>
         <button id="redraw">Redraw</button>
+
+        <button id="random-color-btn">Change Colors</button>
 
         <button id="download-calendar">Download Calendar as A4 pdf</button>
         <p>use the resize handler to adjust the size</p>
@@ -299,7 +303,7 @@
             "--td-background-color",
             tdBgColor
           );
-            document.documentElement.style.setProperty(
+          document.documentElement.style.setProperty(
             "--calendar-background-color",
             calendarBgColor
           );
