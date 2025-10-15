@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calendar</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/addons/p5.sound.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+  </head>
+  <body>
+    <div class="info">
+      <div class="header">
+        <h1>Calendar Generator</h1>
+        <p>use this tool to create custom calendars for the month</p>
+        <form id="month-year-form" ">
+          <label for="month-select">Month:</label>
+          <select id="month-select">
+            <option value="0">January</option>
+            <option value="1">February</option>
+            <option value="2">March</option>
+            <option value="3">April</option>
+            <option value="4">May</option>
+            <option value="5">June</option>
+            <option value="6">July</option>
+            <option value="7">August</option>
+            <option value="8">September</option>
+            <option value="9">October</option>
+            <option value="10">November</option>
+            <option value="11">December</option>
+          </select>
+          <label for="year-select">Year:</label>
+          <input
+            type="number"
+            id="year-select"
+            min="1900"
+            max="2100"
+            value="2025"
+            style="width: 80px"
+          />
+          <button type="submit">Go</button>
+        </form>
+      </div>
+      <div class="actions">
+        
+        <button id="random-color-btn">Change Colors</button>
+        <button id="redraw">Redraw</button>
+
+        <button id="download-calendar">Download Calendar as A4 pdf</button>
+        <p>use the resize handler to adjust the size</p>
+      </div>
+    </div>
+    <div class="calendar-layout">
+      <div id="seasonal-list"></div>
+      <div class="calendar-container">
+        <div class="calendar">
+          <h2>September 2025</h2>
+          <table cellspacing="0" cellpadding="0">
+            <thead>
+              <tr>
+                <th>Sun</th>
+                <th>Mon</th>
+                <th>Tue</th>
+                <th>Wed</th>
+                <th>Thu</th>
+                <th>Fri</th>
+                <th>Sat</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td></td>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td>8</td>
+                <td>9</td>
+                <td>10</td>
+                <td>11</td>
+                <td>12</td>
+                <td>13</td>
+              </tr>
+              <tr>
+                <td>14</td>
+                <td>15</td>
+                <td>16</td>
+                <td>17</td>
+                <td>18</td>
+                <td>19</td>
+                <td>20</td>
+              </tr>
+              <tr>
+                <td>21</td>
+                <td>22</td>
+                <td>23</td>
+                <td>24</td>
+                <td>25</td>
+                <td>26</td>
+                <td>27</td>
+              </tr>
+              <tr>
+                <td>28</td>
+                <td>29</td>
+                <td>30</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Estimate moon phase (0=new, 4=full)
+      function getMoonPhase(year, month, day) {
+        // Simple algorithm (not astronomically precise)
+        const lp = 2551443; // Lunar period in seconds
+        const now = new Date(year, month, day, 20, 35, 0); // 20:35 UTC
+        const newMoon = new Date(1970, 0, 7, 20, 35, 0); // Reference new moon
+        const phase = ((now.getTime() - newMoon.getTime()) / 1000) % lp;
+        const phaseIndex = Math.floor((phase / lp) * 8);
+        // Unicode moon symbols
+        const moons = [
+          "🌑", // New
+          "🌒", // Waxing Crescent
+          "🌓", // First Quarter
+          "🌔", // Waxing Gibbous
+          "🌕", // Full
+          "🌖", // Waning Gibbous
+          "🌗", // Last Quarter
+          "🌘", // Waning Crescent
+        ];
+        return moons[phaseIndex];
+      }
+
+      function generateCalendar(year, month) {
+        const calendarBody = document.querySelector("tbody");
+        const calendarTitle = document.querySelector(".calendar h2");
+        const monthNames = [
+          "January",
+          "February",
+          "March",
+          "April",
+          "May",
+          "June",
+          "July",
+          "August",
+          "September",
+          "October",
+          "November",
+          "December",
+        ];
+        calendarTitle.textContent = `${monthNames[month]} ${year}`;
+
+        // Clear previous rows
+        calendarBody.innerHTML = "";
+
+        // First day of the month
+        const firstDay = new Date(year, month, 1).getDay();
+        // Number of days in the month
+        const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+        let date = 1;
+        for (let i = 0; i < 6; i++) {
+          // 6 weeks max
+          let row = document.createElement("tr");
+          for (let j = 0; j < 7; j++) {
+            let cell = document.createElement("td");
+            if (i === 0 && j < firstDay) {
+              cell.textContent = "";
+            } else if (date > daysInMonth) {
+              cell.textContent = "";
+            } else {
+              // Show date and moon phase
+              const moon = getMoonPhase(year, month, date);
+              cell.innerHTML = `
+  <span class="cell-date">${date}</span>
+  <span class="cell-moon">${moon}</span>
+`;
+              date++;
+            }
+            row.appendChild(cell);
+          }
+          calendarBody.appendChild(row);
+          if (date > daysInMonth) break;
+        }
+      }
+
+      // Get current date
+      const today = new Date();
+      generateCalendar(today.getFullYear(), today.getMonth());
+    </script>
+
+    <script>
+      document
+        .getElementById("download-calendar")
+        .addEventListener("click", function () {
+          const calendarDiv = document.querySelector(".calendar-layout");
+          html2canvas(calendarDiv, { scale: 2 }).then(function (canvas) {
+            const imgData = canvas.toDataURL("image/png");
+            const pdf = new window.jspdf.jsPDF({
+              orientation: "portrait",
+              unit: "mm",
+              format: "a4",
+            });
+
+            // A4 size in mm
+            const pageWidth = 210;
+            const pageHeight = 297;
+
+            // Calculate image dimensions to fit A4
+            const imgProps = pdf.getImageProperties(imgData);
+            let pdfWidth = pageWidth;
+            let pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+            if (pdfHeight > pageHeight) {
+              pdfHeight = pageHeight;
+              pdfWidth = (imgProps.width * pdfHeight) / imgProps.height;
+            }
+            const x = (pageWidth - pdfWidth) / 2;
+            const y = (pageHeight - pdfHeight) / 2;
+
+            pdf.addImage(imgData, "PNG", x, y, pdfWidth, pdfHeight);
+            pdf.save("calendar.pdf");
+          });
+        });
+    </script>
+    <script>
+      //change colors
+      function getRandomBaseColor() {
+        // Generate a random hue for HSL
+        const hue = Math.floor(Math.random() * 360);
+        return hue;
+      }
+
+      // Returns HSL color string with given hue, saturation, and lightness
+      function hsl(hue, sat, light) {
+        return `hsl(${hue}, ${sat}%, ${light}%)`;
+      }
+
+      // Returns black or white depending on lightness for accessibility
+      function getAccessibleTextColor(lightness) {
+        return lightness < 60 ? "#fff" : "#000";
+      }
+
+      function getAccessibleShade(hue, bgLightness) {
+        // If background is light, use a dark shade; if dark, use a light shade
+        let textLightness = bgLightness > 60 ? 20 : 90;
+        let saturation = 60; // You can tweak this for vibrancy
+        return `hsl(${hue}, ${saturation}%, ${textLightness}%)`;
+      }
+
+      document
+        .getElementById("random-color-btn")
+        .addEventListener("click", () => {
+          const hue = getRandomBaseColor();
+
+          // Define shades for different elements
+          const bgLightness = 95;
+          const thLightness = 80;
+          const tdLightness = 95;
+          const calendarBgLightness = 90;
+
+          const bgColor = hsl(hue, 40, bgLightness);
+          const buttonColor = hsl(hue, 60, 40);
+          const thBgColor = hsl(hue, 50, thLightness);
+          const tdBgColor = hsl(hue, 50, tdLightness);
+          const calendarBgColor = hsl(hue, 30, calendarBgLightness);
+
+          // Accessible text colors as shades of the same hue
+          const textColor = getAccessibleShade(hue, bgLightness);
+          const thTextColor = getAccessibleShade(hue, thLightness);
+          const tdTextColor = getAccessibleShade(hue, tdLightness);
+
+          document.documentElement.style.setProperty(
+            "--background-color",
+            bgColor
+          );
+          document.documentElement.style.setProperty("--text-color", textColor);
+          document.documentElement.style.setProperty(
+            "--background-button-color",
+            buttonColor
+          );
+          document.documentElement.style.setProperty(
+            "--th-background-color",
+            thBgColor
+          );
+          document.documentElement.style.setProperty(
+            "--td-background-color",
+            tdBgColor
+          );
+            document.documentElement.style.setProperty(
+            "--calendar-background-color",
+            calendarBgColor
+          );
+
+          // Set text color for th and td directly for accessibility
+          document
+            .querySelectorAll("th")
+            .forEach((el) => (el.style.color = thTextColor));
+          document
+            .querySelectorAll("td")
+            .forEach((el) => (el.style.color = tdTextColor));
+          document
+            .querySelectorAll("h1, h2, h3, body, li, #random-color-btn")
+            .forEach((el) => (el.style.color = textColor));
+        });
+    </script>
+    <script>
+      // document
+      //   .getElementById("select-month-btn")
+      //   .addEventListener("click", function () {
+      //     const form = document.getElementById("month-year-form");
+      //     form.style.display = form.style.display === "none" ? "block" : "none";
+      //   });
+
+      document
+        .getElementById("month-year-form")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          const month = parseInt(
+            document.getElementById("month-select").value,
+            10
+          );
+          const year = parseInt(
+            document.getElementById("year-select").value,
+            10
+          );
+          generateCalendar(year, month);
+          // this.style.display = "none";
+        });
+    </script>
+
+    <script src="sketch.js"></script>
+  </body>
+</html>

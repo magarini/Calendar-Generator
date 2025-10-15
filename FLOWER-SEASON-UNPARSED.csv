@@ -1,0 +1,499 @@
+SEASON,COLOUR,FLOWER,MONTH
+Summer,Purple,Tulip ,1/1/2013
+Winter,Purple,Lisianthus,1/6/2013
+Spring,Pink,Lily,1/9/2013
+Spring,White,Peony ,1/9/2013
+Summer,Green,Antherium,1/12/2013
+Summer,Orange,Lily,1/1/2014
+Summer,Orange,Rose,1/1/2014
+Winter,Purple,Phalaenopsis Orchid,1/6/2014
+Winter,Purple,Rose,1/6/2014
+Winter,White,Lisianthus,1/8/2014
+Winter,White,Phalaenopsis Orchid,1/8/2014
+Spring,Pink,Lisianthus,1/9/2014
+Spring,Pink,Poppy,1/9/2015
+Spring,White,Ranunculi,1/9/2016
+Spring,White,Rose,1/9/2014
+Summer,Blue,Scabiosa,1/12/2014
+Summer,Green,Amaranthus,1/12/2014
+Summer,Orange,Singapore Orchid,1/1/2015
+Autumn,Blue,Delphinium,1/3/2015
+Autumn,Blue,Singapore Orchids,1/3/2015
+Autumn,Green,Gymea,1/3/2015
+Autumn,Green,Hypericum Berry,1/3/2015
+Autumn,Green,Kale ,1/3/2015
+Autumn,Green,Molluca Balm,1/3/2015
+Autumn,Green,Rose,1/3/2015
+Autumn,Yellow,Freesia,1/3/2015
+Autumn,Yellow,Gerbera,1/3/2015
+Autumn,Yellow,Singapore Orchid,1/3/2015
+Autumn,Yellow,Snap Dragon,1/3/2015
+Autumn,Pink,Chrysanthemum,1/4/2015
+Autumn,Pink,Dahlia,1/4/2015
+Autumn,Pink,David Austin Roses,1/4/2015
+Autumn,Pink,Freesia,1/4/2015
+Autumn,Pink,Gerbera,1/4/2015
+Autumn,Purple,Dahlia,1/5/2015
+Autumn,Purple,Delphinium,1/5/2015
+Autumn,Purple,Gerbera,1/5/2015
+Autumn,Purple,Gladioli,1/5/2015
+Autumn,Purple,Hyacinths,1/5/2015
+Autumn,Purple,Singapore Orchids,1/5/2015
+Autumn,Purple,Statice,1/5/2015
+Autumn,Purple,Stock ,1/5/2015
+Autumn,Purple,Tulip,1/5/2015
+Autumn,Red,Gladioli,1/5/2015
+Autumn,Red,Gloriosa Lily,1/5/2015
+Autumn,Red,Heliconia,1/5/2015
+Autumn,Red,Hypericum Berry,1/5/2015
+Autumn,Yellow,Aster,1/5/2015
+Autumn,Yellow,Calla Lillies,1/5/2015
+Autumn,Yellow,Carnation,1/5/2015
+Autumn,Yellow,Chrysanthemum,1/5/2015
+Winter,Purple,Singapore Orchids,1/6/2015
+Winter,White,Protea,1/8/2015
+Spring,Pink,Peony ,1/9/2015
+Spring,White,Singapore Orchid,1/9/2015
+Summer,Blue,Singapore Orchid,1/12/2015
+Summer,Orange,Tulip ,1/1/2016
+Summer,Pink,Alstromeria,1/1/2016
+Summer,Pink,Antherium,1/1/2016
+Summer,Pink,Aster,1/1/2016
+Summer,Pink,Bella Donna Lily,1/1/2016
+Summer,Pink,Bouvardia,1/1/2016
+Summer,Pink,Cala Lily,1/1/2016
+Summer,Pink,Carnation,1/1/2016
+Summer,Pink,Celosia,1/1/2016
+Summer,White,Hydrangea,1/2/2016
+Summer,White,Hypericum Berry,1/2/2016
+Summer,White,Lily,1/2/2016
+Summer,White,Veronica,1/2/2016
+Summer,Yellow,Alstromeria,1/2/2016
+Summer,Yellow,Aster,1/2/2016
+Summer,Yellow,Cala Lily,1/2/2016
+Summer,Yellow,Carnation,1/2/2016
+Summer,Yellow,Chrysanthemum,1/2/2016
+Autumn,Blue,Scabiosa,1/3/2016
+Autumn,Green,Amaranthus,1/3/2016
+Autumn,Green,Antherium,1/3/2016
+Autumn,Green,Carnation,1/3/2016
+Autumn,Green,Chrysanthemum,1/3/2016
+Autumn,Green,Gladioli,1/3/2016
+Autumn,White,Lisianthus,1/3/2016
+Autumn,White,Phalaenopsis Orchid,1/3/2016
+Autumn,White,Poppy ,1/3/2016
+Autumn,White,Protea,1/3/2016
+Autumn,White,Rose,1/3/2016
+Autumn,White,Singapore Orchid,1/3/2016
+Autumn,Yellow,Lily,1/3/2016
+Autumn,Yellow,Sunflower,1/3/2016
+Autumn,Pink,Gladioli,1/4/2016
+Autumn,Pink,Hyacinth,1/4/2016
+Autumn,Pink,Hypericum Berry,1/4/2016
+Autumn,Pink,Lily,1/4/2016
+Autumn,Pink,Lisianthus,1/4/2016
+Autumn,Pink,Poppy ,1/4/2016
+Autumn,Pink,Protea,1/4/2016
+Autumn,Pink,Rose,1/4/2016
+Autumn,Pink,Singapore Orchid,1/4/2016
+Autumn,Pink,Stock ,1/4/2016
+Autumn,Purple,Iris,1/5/2016
+Autumn,Purple,Kale ,1/5/2016
+Autumn,Purple,Lavender ,1/5/2016
+Autumn,Purple,Veronica,1/5/2016
+Autumn,Purple,Violets ,1/5/2016
+Autumn,Red,Alstromeria,1/5/2016
+Autumn,Yellow,Cows Udders,1/5/2016
+Autumn,Yellow,Dahlia,1/5/2016
+Winter,Purple,Statice,1/6/2016
+Winter,Purple,Stock,1/6/2016
+Winter,Purple,Tulip,1/6/2016
+Winter,Red,Alstromeria,1/6/2016
+Winter,Red,Carnation,1/6/2016
+Winter,Red,Chrysanthemum,1/6/2016
+Winter,Red,Gerbera,1/6/2016
+Winter,Red,Gladioli,1/6/2016
+Winter,Red,Lily,1/6/2016
+Winter,Green,Chrysanthemum,1/7/2016
+Winter,Green,Cymbidium Orchid,1/7/2016
+Winter,Green,Gymea,1/7/2016
+Winter,Green,Molluca Balm,1/7/2016
+Winter,Green,Moss,1/7/2016
+Winter,White,Rose,1/8/2016
+Winter,White,Singapore Orchid,1/8/2016
+Winter,White,Snap Dragon,1/8/2016
+Winter,White,Stock,1/8/2016
+Winter,White,Sweet Pea,1/8/2016
+Winter,White,Tulip,1/8/2016
+Winter,Yellow,Alstromeria,1/8/2016
+Winter,Yellow,Carnation,1/8/2016
+Winter,Yellow,Chrysanthemum,1/8/2016
+Spring,Pink,Ranunculi,1/9/2016
+Spring,Pink,Rose,1/9/2016
+Spring,Pink,Singapore Orchid,1/9/2016
+Spring,Pink,Snap Dragon,1/9/2016
+Spring,Pink,Stock,1/9/2016
+Spring,Pink,Sweet Pea,1/9/2016
+Spring,Purple,Ageratum,1/9/2016
+Spring,Purple,Alstromeria,1/9/2016
+Spring,Purple,Anemone,1/9/2016
+Spring,White,Snap Dragon,1/9/2016
+Spring,White,Stock,1/9/2016
+Spring,White,Sweet Pea,1/9/2016
+Spring,White,Waratah,1/9/2016
+Spring,Yellow,Alstromeria,1/9/2016
+Spring,Yellow,Aster,1/9/2016
+Spring,Yellow,Cala Lily,1/9/2016
+Spring,Yellow,Carnation,1/9/2016
+Spring,Yellow,Chrysanthemum,1/9/2016
+Spring,Blue,Anemone,1/10/2015
+Spring,Blue,Blue Bells,1/10/2015
+Spring,Blue,Cornflower ,1/10/2015
+Spring,Blue,Sea Holly,1/10/2015
+Spring,Blue,Singapore Orchid,1/10/2015
+Spring,Blue,Scabiosa,1/10/2015
+Spring,Green,Amaranthus,1/10/2015
+Spring,Green,Antherium,1/10/2015
+Spring,Green,Carnation,1/10/2016
+Spring,Green,Chrysanthemum,1/10/2016
+Spring,Green,Cymbidium Orchids,1/10/2016
+Spring,Purple,Stock ,1/10/2016
+Spring,Purple,Stock,1/10/2016
+Spring,Purple,Sweet Pea,1/10/2016
+Spring,Red,Alstromeria,1/10/2016
+Spring,Red,Amaranthus,1/10/2016
+Spring,Red,Anemone,1/10/2017
+Spring,Red,Antherium,1/10/2017
+Spring,Red,Boronia ,1/10/2016
+Spring,Red,Celosia,1/10/2016
+Summer,Blue,Agapanthus,1/12/2016
+Summer,Blue,Aster,1/12/2016
+Summer,Blue,Delphinium,1/12/2016
+Summer,White,Lisianthus,1/12/2016
+Summer,White,Phalaenopsis Orchid,1/12/2016
+Summer,White,Rose,1/12/2016
+Summer,White,Singapore Orchid,1/12/2016
+Summer,White,Tulip ,1/12/2016
+Summer,White,Tuberose,1/12/2016
+Summer,Pink,Chrysanthemum,1/1/2017
+Summer,White,Alstromeria,1/2/2017
+Summer,White,Bouvardia,1/2/2017
+Summer,White,Carnation,1/2/2017
+Summer,White,Chrysanthemum,1/2/2017
+Summer,White,Dahlia,1/2/2017
+Summer,White,David Austin Rose,1/2/2017
+Summer,White,Delphinium,1/2/2017
+Summer,White,Freesia,1/2/2017
+Summer,White,Gerbera,1/2/2017
+Summer,White,Gladioli,1/2/2017
+Autumn,Orange,Dahlia,1/3/2017
+Autumn,Pink,Antherium,1/3/2017
+Autumn,Pink,Aster,1/3/2017
+Autumn,Pink,Bella Donna Lillies,1/3/2017
+Autumn,Pink,Bouvardia,1/3/2017
+Autumn,Pink,Calla Lillies,1/3/2017
+Autumn,Pink,Carnation,1/3/2017
+Autumn,Pink,Celosia,1/3/2017
+Autumn,Yellow,Ornamental Chilli,1/3/2017
+Autumn,Yellow,Poppies ,1/3/2017
+Autumn,Yellow,Roses,1/3/2017
+Autumn,Yellow,Tulip,1/3/2017
+Autumn,White,David Austin Rose,1/4/2017
+Autumn,White,Delphinium,1/4/2017
+Autumn,White,Easter Daisy,1/4/2017
+Autumn,White,Freesia,1/4/2017
+Autumn,White,Gardenia,1/4/2017
+Autumn,White,Gerbera,1/4/2017
+Autumn,White,Gladioli,1/4/2017
+Autumn,White,Hyacinth,1/4/2017
+Autumn,Red,Lily,1/5/2017
+Autumn,Red,Ornamental Chilli,1/5/2017
+Autumn,Red,Poppy ,1/5/2017
+Autumn,Red,Rose,1/5/2017
+Autumn,Red,Singapore Orchid,1/5/2017
+Autumn,White,Alstromeria,1/5/2017
+Autumn,White,Bouvardia,1/5/2017
+Autumn,White,Carnation,1/5/2017
+Autumn,White,Chrysanthemum,1/5/2017
+Autumn,White,Dahlia,1/5/2017
+Winter,Red,Ornamental Chilli,1/6/2017
+Winter,Red,Poppy,1/6/2017
+Winter,Red,Ranunculi ,1/6/2017
+Winter,Red,Singapore Orchid,1/6/2017
+Winter,Orange,Rose,1/7/2017
+Winter,Orange,Singapore Orchid,1/7/2017
+Winter,Orange,Tulip,1/7/2017
+Winter,Pink,Alstromeria,1/7/2017
+Winter,Pink,Antherium,1/7/2015
+Winter,Pink,Blushing Bride,1/7/2015
+Winter,Pink,Carnation,1/7/2015
+Winter,Pink,Chrysanthemum,1/7/2017
+Winter,Pink,Cymbidium Orchid,1/7/2017
+Winter,Pink,Gerbera,1/7/2017
+Winter,Pink,Gladioli,1/7/2017
+Winter,Pink,Gloriosa Lily,1/7/2017
+Winter,Pink,Hyacinth,1/7/2015
+Winter,Pink,Lily,1/7/2015
+Winter,Pink,Lisianthus,1/7/2015
+Winter,Pink,Poppy,1/7/2015
+Winter,Yellow,Singapore Orchid,1/7/2015
+Winter,Yellow,Snap Dragon,1/7/2015
+Winter,Yellow,Cymbidium Orchid,1/8/2017
+Winter,Yellow,Daffodils,1/8/2017
+Winter,Yellow,Gerbera,1/8/2017
+Winter,Yellow,Gladioli,1/8/2017
+Spring,Purple,Boronia ,1/9/2017
+Spring,Purple,Cala Lily,1/9/2015
+Spring,Purple,Carnation,1/9/2015
+Spring,Purple,Chrysanthemum,1/9/2017
+Spring,Yellow,Cymbidium Orchid,1/9/2017
+Spring,Red,Gerbera,1/10/2015
+Spring,Red,Gladioli,1/10/2015
+Spring,Red,Gloriosa Lily,1/10/2015
+Spring,Red,Heliconia,1/10/2015
+Spring,Red,Hippeastrum ,1/10/2017
+Spring,Red,Hypericum Berry,1/10/2017
+Spring,Red,Lily,1/11/2017
+Spring,Red,Ornamental Chilli,1/11/2017
+Spring,Red,Poppy ,1/11/2017
+Spring,Red,Rose,1/11/2017
+Summer,Purple,Calla Lily,1/12/2017
+Summer,Purple,Carnation,1/12/2017
+Summer,Purple,Chrysanthemum,1/12/2017
+Summer,Purple,Dahlia,1/12/2017
+Summer,Purple,Delphinium,1/12/2017
+Summer,Green,Carnation,1/12/2017
+Summer,Green,Chrysanthemum,1/12/2017
+Summer,Orange,Heliconia,1/12/2017
+Summer,Orange,Hydrangea,1/12/2017
+Summer,Purple,Gerbera,1/2/2018
+Summer,Purple,Veronica,1/2/2018
+Summer,Red,Alstromeria,1/2/2018
+Summer,Red,Amaranthus,1/2/2018
+Summer,Red,Antherium,1/2/2018
+Summer,Pink,Lily,1/2/2018
+Summer,Pink,Lisianthus,1/2/2018
+Summer,Pink,Rose,1/2/2018
+Summer,Pink,Singapore Orchid,1/2/2018
+Summer,Pink,Dahlia,1/2/2018
+Summer,Pink,David Austin Rose,1/2/2018
+Summer,Pink,Freesia,1/2/2018
+Summer,Pink,Gerbera,1/2/2018
+Summer,Purple,Hydrangea,1/2/2018
+Summer,Purple,Iris,1/2/2015
+Summer,Purple,Larkspur,1/2/2015
+Summer,Purple,Lavender,1/2/2015
+Summer,Red,Carnation,1/2/2015
+Summer,Red,Celosia,1/2/2015
+Summer,Red,Crab Claw,1/2/2015
+Summer,Red,Gerbera,1/2/2016
+Summer,Red,Gladioli,1/2/2016
+Summer,Red,Gloriosa Lily,1/2/2016
+Summer,Red,Heliconia,1/2/2016
+Summer,Red,Hypericum Berry,1/2/2016
+Summer,Red,Lily,1/2/2016
+Summer,Red,Roses,1/2/2016
+Summer,Red,Singapore Orchids,1/2/2016
+Autumn,Orange,Calla Lily,1/3/2018
+Autumn,Orange,Gerbera,1/4/2015
+Autumn,Orange,Heliconia,1/4/2015
+Autumn,Orange,Hydrangea,1/4/2015
+Autumn,Orange,Lily,1/4/2015
+Autumn,Orange,Ornamental Chilli,1/4/2015
+Autumn,Orange,Roses,1/4/2015
+Autumn,Orange,Poppy ,1/4/2015
+Autumn,Orange,Tulip,1/4/2018
+Autumn,Pink,Alstromeria,1/4/2018
+Autumn,White,Hypericum Berry,1/4/2018
+Autumn,White,Kale ,1/4/2018
+Autumn,White,Lily,1/4/2018
+Autumn,White,Snap Dragon,1/4/2018
+Autumn,White,Stock ,1/4/2018
+Autumn,White,Tuberose,1/4/2018
+Autumn,White,Tulip,1/4/2018
+Autumn,White,Veronica,1/4/2018
+Autumn,Purple,Liatris,1/5/2015
+Autumn,Purple,Lissianthus,1/5/2015
+Autumn,Purple,Roses,1/5/2015
+Autumn,Red,Amaranthus,1/5/2018
+Autumn,Red,Antherium,1/5/2018
+Autumn,Yellow,Alstromeria,1/5/2018
+Winter,White,Alstromeria,1/6/2016
+Winter,White,Arum Lily,1/6/2016
+Winter,White,Carnation,1/6/2016
+Winter,White,Chrysanthemum,1/6/2016
+Winter,White,Cymbidium Orchid,1/6/2016
+Winter,White,Daffodil,1/6/2016
+Winter,White,Earlicheer,1/6/2018
+Winter,White,Gerbera,1/6/2018
+Winter,Blue,Sea Holly,1/7/2018
+Winter,Blue,Singapore Orchid,1/7/2015
+Winter,Green,Antherium,1/7/2015
+Winter,Green,Carnation,1/7/2015
+Winter,Green,Rose,1/7/2015
+Winter,Green,Singapore Orchid,1/7/2015
+Winter,Orange,Chrysanthemum,1/7/2015
+Winter,Orange,Gerbera,1/7/2015
+Winter,Orange,Lily,1/7/2016
+Winter,Orange,Poker,1/7/2016
+Winter,Orange,Poppy,1/7/2016
+Winter,Orange,Ranunculi ,1/7/2016
+Winter,Pink,Protea,1/7/2016
+Winter,Pink,Ranunculi ,1/7/2016
+Winter,Pink,Rose,1/7/2016
+Winter,Pink,Singapore Orchid,1/7/2016
+Winter,Pink,Snap Dragon,1/7/2018
+Winter,Pink,Stock,1/7/2018
+Winter,Pink,Tulip,1/7/2018
+Winter,Purple,Anemone,1/7/2018
+Winter,Yellow,Poppy,1/7/2018
+Winter,Yellow,Ranunculi ,1/7/2018
+Winter,Yellow,Rose,1/7/2018
+Winter,Yellow,Lily,1/8/2018
+Winter,Yellow,Pokers,1/8/2018
+Spring,Purple,Dahlia,1/9/2015
+Spring,Purple,Delphinium,1/9/2015
+Spring,Purple,Gerbera,1/9/2016
+Spring,Purple,Gladioli,1/9/2018
+Spring,Purple,Hyacinth,1/9/2018
+Spring,Purple,Iris,1/9/2018
+Spring,Purple,Lavender,1/9/2018
+Spring,Purple,Liatris,1/9/2018
+Spring,Green,Erica,1/10/2015
+Spring,Green,Gladioli,1/10/2015
+Spring,Green,Green Godess,1/10/2015
+Spring,Green,Gymea,1/10/2015
+Spring,Green,Kale ,1/10/2015
+Spring,Green,Molluca Balm,1/10/2015
+Spring,Green,Rose,1/10/2015
+Spring,Green,Singapore Orchid,1/10/2015
+Spring,Orange,Gerbera,1/10/2015
+Spring,Orange,Heliconia,1/10/2017
+Spring,Orange,Hydrangea,1/10/2017
+Spring,Orange,Lily,1/10/2017
+Spring,Orange,Ornamental Chilli,1/10/2017
+Spring,Orange,Roses,1/10/2017
+Spring,Orange,Poppy,1/10/2017
+Spring,Orange,Ranunculi,1/10/2017
+Spring,Orange,Singapore Orchid,1/10/2017
+Spring,Orange,Tulip ,1/10/2017
+Spring,Pink,Alstromeria,1/10/2017
+Spring,Pink,Andromeda,1/10/2017
+Spring,Pink,Anemone,1/10/2017
+Spring,Pink,Antherium,1/10/2017
+Spring,Pink,Blushing bride,1/10/2017
+Spring,Pink,Boronia ,1/10/2017
+Spring,Pink,Cala Lily,1/10/2018
+Spring,Pink,Carnation,1/10/2018
+Spring,Pink,Celosia,1/10/2018
+Spring,Pink,Chrysanthemum,1/10/2018
+Spring,Pink,Cymbidium Orchids,1/10/2018
+Spring,Pink,David Austin Rose,1/10/2018
+Spring,Pink,Dogwood ,1/10/2018
+Spring,White,Dahlia,1/10/2018
+Spring,White,Freesia,1/10/2018
+Spring,White,Gardenia,1/10/2018
+Spring,White,Gerbera,1/10/2018
+Spring,White,Gladioli,1/10/2018
+Spring,White,Hippeastrum ,1/10/2018
+Spring,Yellow,Dahlia,1/10/2018
+Spring,Yellow,Freesia,1/10/2016
+Spring,Yellow,Gerbera,1/10/2016
+Spring,Yellow,Lily,1/10/2016
+Spring,Yellow,Ornamental Chilli,1/10/2016
+Spring,Yellow,Poppy,1/10/2016
+Spring,Yellow,Rose,1/10/2016
+Spring,Yellow,Singapore Orchid,1/10/2016
+Spring,Red,Singapore Orchid,1/11/2017
+Spring,Red,Waratah,1/11/2017
+Spring,White,Alstromeria,1/11/2017
+Spring,White,Andromeda,1/11/2017
+Spring,White,Arabs Eyes ,1/11/2017
+Spring,White,Bouvardia,1/11/2017
+Spring,White,Carnation,1/11/2018
+Spring,White,Chincherinchi ,1/11/2018
+Spring,White,Chrysanthemum,1/11/2018
+Spring,White,Cymbidium Orchids,1/11/2018
+Spring,White,Hyacinth,1/11/2018
+Summer,Green,Gladioli,1/12/2018
+Summer,Green,Gymea,1/12/2018
+Summer,Green,Molluca Balm,1/12/2018
+Summer,Green,Moss,1/12/2018
+Summer,Green,Singapore Orchid,1/12/2018
+Summer,Orange,Dahlia,1/12/2018
+Summer,Orange,Cala Lily,1/12/2018
+Summer,Orange,Gerbera,1/12/2018
+Summer,Purple,Gladioli,1/2/2017
+Summer,Pink,Gladioli,1/2/2017
+Summer,Pink,Hydrangea,1/2/2017
+Summer,Pink,Hypericum Berry,1/2/2017
+Summer,Pink,Tulip ,1/2/2017
+Summer,Pink,Veronica,1/2/2017
+Summer,Purple,Ageratum,1/2/2018
+Summer,Purple,Alstromeria,1/2/2018
+Summer,Purple,Rose,1/2/2018
+Summer,Purple,Singapore Orchid,1/2/2018
+Summer,Purple,Statice,1/2/2018
+Summer,Purple,Liatris,1/2/2018
+Summer,Purple,Lisianthus,1/2/2019
+Summer,Red,Bouvardia,1/2/2019
+Summer,Yellow,Cows Udders,1/2/2019
+Summer,Yellow,Dahlia,1/2/2019
+Summer,Yellow,Freesia,1/2/2019
+Summer,Yellow,Gerbera,1/2/2019
+Summer,Yellow,Lily,1/2/2019
+Autumn,Green,Singapore Orchids,1/3/2019
+Autumn,Pink,Tulip,1/4/2016
+Autumn,Pink,Veronica,1/4/2016
+Autumn,Purple,Ageratum,1/4/2016
+Autumn,Purple,Alstromeria,1/4/2016
+Autumn,Purple,Cala Lily,1/4/2016
+Autumn,Purple,Carnation,1/4/2019
+Autumn,Red,Bouvardia,1/4/2019
+Autumn,Red,Carnation,1/4/2019
+Autumn,Red,Celosia,1/4/2019
+Autumn,Red,Crab Claw,1/4/2019
+Autumn,Purple,Chrysanthemum,1/5/2019
+Autumn,Red,Gerbera,1/5/2019
+Winter,White,Gladioli,1/6/2019
+Winter,White,Hyacinth,1/6/2019
+Winter,White,Kale ,1/6/2019
+Winter,White,Lily,1/6/2019
+Winter,Purple,Carnations,1/7/2015
+Winter,Purple,Chrysanthemum,1/7/2019
+Winter,Purple,Gladioli,1/7/2019
+Winter,Purple,Hyacinth,1/7/2019
+Winter,Purple,Iris,1/7/2019
+Winter,Purple,Kale,1/7/2019
+Winter,Purple,Liatris,1/7/2019
+Spring,Purple,Lissianthus,1/9/2019
+Spring,Purple,Roses,1/9/2019
+Spring,Purple,Singapore Orchids,1/9/2019
+Spring,Purple,Statice,1/9/2019
+Spring,Pink,Erica,1/10/2016
+Spring,Pink,Freesia,1/10/2016
+Spring,Pink,Gerbera,1/10/2016
+Spring,Pink,Gladioli,1/10/2016
+Spring,Pink,Hippeastrum ,1/10/2016
+Spring,Pink,Hyacinth,1/10/2016
+Spring,Pink,Hypericum Berry,1/10/2017
+Spring,White,David Austin Roses,1/10/2017
+Spring,White,Delphinium,1/10/2017
+Spring,White,Dogwood ,1/10/2019
+Spring,White,Earlicheer,1/10/2019
+Spring,White,Easter Daisy,1/10/2019
+Spring,Yellow,Snap Dragon,1/10/2019
+Spring,Yellow,Sunflower,1/10/2019
+Spring,White,Hypericum Berry,1/11/2017
+Spring,White,Jonquil,1/11/2017
+Spring,White,Lily,1/11/2017
+Spring,White,Lily of the Valley,1/11/2019
+Spring,White,Lisianthus,1/11/2019
+Spring,White,Phalaeonopsis Orchids,1/11/2019
+Spring,White,Poppy,1/11/2019
+Summer,Yellow,Rose,1/12/2019
+Summer,Yellow,Singapore Orchid,1/12/2019
+Summer,Yellow,Sunflowers,1/12/2019
+Summer,Yellow,Tulips ,1/12/2019
+Winter,Blue,Anemone,1/7/2016
+Winter,Blue,Hyacinth,1/7/2016
