@@ -47,7 +47,7 @@ h1 {
   gap: 16px;
 }
 
-#random-color-btn, #redraw {
+#random-color-btn, #redraw, .secondary {
   background-color: var(--th-background-color);
   color:var(--text-color);
 }

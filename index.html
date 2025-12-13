@@ -19,8 +19,10 @@
         <p>this is WIP, i am still developing it & evolving it as an idea</p>
         <p>I have only collected data for September & October so far</p>
         <br />
-        <p>still haven't figure out how to make the random collages work well</p>
-        <br/>
+        <p>
+          still haven't figure out how to make the random collages work well
+        </p>
+        <br />
         <form id="month-year-form">
           <!-- <label for="month-select">Month:</label> -->
           <select id="month-select">
@@ -51,10 +53,25 @@
       </div>
       <div class="actions">
         <button id="redraw">Redraw</button>
-
         <button id="random-color-btn">Change Colors</button>
 
+        <button id="toggle-seasonal-btn" class="secondary" aria-controls="seasonal-list" aria-expanded="true">
+          Hide Seasonal List
+        </button>
+
+        <button id="upload-bg-btn" class="secondary">Upload Background</button>
+        <button id="remove-bg-btn" class="secondary" style="display: none">
+          Remove Background
+        </button>
+        <input
+          id="bg-upload"
+          type="file"
+          accept="image/*"
+          style="display: none"
+          aria-label="Upload calendar background image"
+        />
         <button id="download-calendar">Download Calendar as A4 pdf</button>
+
         <p>use the resize handler to adjust the size</p>
       </div>
     </div>
@@ -211,21 +228,62 @@
     <script>
       document
         .getElementById("download-calendar")
-        .addEventListener("click", function () {
+        .addEventListener("click", async function () {
           const calendarDiv = document.querySelector(".calendar-layout");
-          html2canvas(calendarDiv, { scale: 2 }).then(function (canvas) {
-            const imgData = canvas.toDataURL("image/png");
+          const p5Canvas = calendarDiv.querySelector("canvas"); // the p5 canvas inside the layout (if present)
+
+          // helper: ensure CSS background image is loaded (if any)
+          function waitForBgImage(el) {
+            const bg = getComputedStyle(el).backgroundImage; // e.g. url("blob:...")
+            if (!bg || bg === "none") return Promise.resolve();
+            const m = bg.match(/url\(["']?(.*?)["']?\)/);
+            if (!m) return Promise.resolve();
+            const src = m[1];
+            return new Promise((res, rej) => {
+              const img = new Image();
+              img.onload = () => res();
+              img.onerror = () => res(); // still continue on error
+              // try to allow CORS if it's an external url
+              img.crossOrigin = "anonymous";
+              img.src = src;
+              // if already cached, onload will fire immediately
+            });
+          }
+
+          // Wait for bg to load
+          await waitForBgImage(calendarDiv);
+
+          // If your p5 canvas is tainted, html2canvas may fail to include it.
+          // Option A (recommended if canvas is tainted and you only need the DOM background + elements):
+          let hidCanvas = false;
+          if (p5Canvas) {
+            // hide canvas temporarily so html2canvas captures the underlying CSS background
+            p5Canvas.style.visibility = "hidden";
+            hidCanvas = true;
+          }
+
+          // Capture with better options
+          const options = {
+            scale: 3,
+            useCORS: true,
+            allowTaint: true,
+            backgroundColor: null,
+          };
+
+          try {
+            const snapCanvas = await html2canvas(calendarDiv, options);
+            // restore canvas visibility
+            if (hidCanvas && p5Canvas) p5Canvas.style.visibility = "";
+
+            const imgData = snapCanvas.toDataURL("image/png");
             const pdf = new window.jspdf.jsPDF({
               orientation: "portrait",
               unit: "mm",
               format: "a4",
             });
 
-            // A4 size in mm
             const pageWidth = 210;
             const pageHeight = 297;
-
-            // Calculate image dimensions to fit A4
             const imgProps = pdf.getImageProperties(imgData);
             let pdfWidth = pageWidth;
             let pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
@@ -238,7 +296,13 @@
 
             pdf.addImage(imgData, "PNG", x, y, pdfWidth, pdfHeight);
             pdf.save("calendar.pdf");
-          });
+          } catch (err) {
+            if (p5Canvas && hidCanvas) p5Canvas.style.visibility = "";
+            console.error("Export failed:", err);
+            alert(
+              "Export failed — see console. If you used local images on the canvas they may be blocking the export (CORS/taint). Try removing/hiding the canvas or use images served with CORS."
+            );
+          }
         });
     </script>
     <script>
@@ -348,5 +412,98 @@
     </script>
 
     <script src="sketch.js"></script>
+    <script>
+  (function(){
+    const uploadBtn = document.getElementById('upload-bg-btn');
+    const removeBtn = document.getElementById('remove-bg-btn');
+    const fileInput = document.getElementById('bg-upload');
+    const calendarLayout = document.querySelector('.calendar-layout');
+    let currentBgUrl = null;
+
+    uploadBtn.addEventListener('click', () => fileInput.click());
+
+    fileInput.addEventListener('change', (e) => {
+      const file = e.target.files && e.target.files[0];
+      if (!file) return;
+      if (!file.type.startsWith('image/')) {
+        alert('Please select an image file.');
+        return;
+      }
+      // revoke old URL
+      if (currentBgUrl) URL.revokeObjectURL(currentBgUrl);
+      currentBgUrl = URL.createObjectURL(file);
+
+      // Apply as background
+      calendarLayout.style.backgroundImage = `url("${currentBgUrl}")`;
+      calendarLayout.style.backgroundSize = 'cover';
+      calendarLayout.style.backgroundPosition = 'center center';
+      calendarLayout.style.backgroundRepeat = 'no-repeat';
+      calendarLayout.setAttribute('aria-label', `Calendar background: ${file.name}`);
+
+      removeBtn.style.display = 'inline-block';
+    });
+
+    removeBtn.addEventListener('click', () => {
+      if (currentBgUrl) {
+        URL.revokeObjectURL(currentBgUrl);
+        currentBgUrl = null;
+      }
+      calendarLayout.style.backgroundImage = '';
+      calendarLayout.removeAttribute('aria-label');
+      fileInput.value = '';
+      removeBtn.style.display = 'none';
+    });
+
+    // NEW: when user clicks "Redraw" remove background and redraw the p5 canvas
+    document.getElementById('redraw').addEventListener('click', () => {
+      // remove uploaded background if any
+      if (currentBgUrl) {
+        URL.revokeObjectURL(currentBgUrl);
+        currentBgUrl = null;
+      }
+      calendarLayout.style.backgroundImage = '';
+      calendarLayout.removeAttribute('aria-label');
+      fileInput.value = '';
+      removeBtn.style.display = 'none';
+
+      // attempt to clear & redraw the p5 canvas (works in global mode)
+      try {
+        // clear any previous drawing and request redraw
+        if (typeof clear === 'function') clear();
+        if (typeof redraw === 'function') redraw();
+      } catch (err) {
+        // silent fail if p5 not ready
+        console.warn('p5 redraw failed:', err);
+      }
+    });
+  })();
+  </script>
+  <script>
+  // Toggle seasonal list visibility (accessible)
+  (function () {
+    const toggleBtn = document.getElementById("toggle-seasonal-btn");
+    const seasonal = document.getElementById("seasonal-list");
+    if (!toggleBtn || !seasonal) return;
+
+    // Ensure initial aria-hidden matches visible state
+    seasonal.setAttribute("aria-hidden", seasonal.style.display === "none" ? "true" : "false");
+
+    toggleBtn.addEventListener("click", () => {
+      const isHidden = seasonal.getAttribute("aria-hidden") === "true" || getComputedStyle(seasonal).display === "none";
+
+      if (isHidden) {
+        seasonal.style.display = ""; // restore default (flex from CSS)
+        seasonal.setAttribute("aria-hidden", "false");
+        toggleBtn.textContent = "Hide Seasonal List";
+        toggleBtn.setAttribute("aria-expanded", "true");
+      } else {
+        seasonal.style.display = "none";
+        seasonal.setAttribute("aria-hidden", "true");
+        toggleBtn.textContent = "Show Seasonal List";
+        toggleBtn.setAttribute("aria-expanded", "false");
+      }
+    });
+  })();
+</script>
   </body>
 </html>
