@@ -6,27 +6,32 @@ let canvas;
 
 function preload() {
   table = loadTable("OctoberEvents.csv", "csv", "header");
-  let element0 = loadImage("img/October/mushrooms.png");
-  let element1 = loadImage("img/October/walnut.png");
-  let element2 = loadImage("img/October/apostaksi.png");
-  let element3 = loadImage("img/October/elies.png");
-  let element4 = loadImage("img/October/pinelia1.png");
-  let element5 = loadImage("img/October/pinelia2.png");
-  let element6 = loadImage("img/October/figs.png");
-  let element7 = loadImage("img/October/pinelia.png");
-  let element8 = loadImage("img/October/pinelia6.png");
+  // let element0 = loadImage("img/October/mushrooms.png");
+  // let element1 = loadImage("img/October/walnut.png");
+  // let element2 = loadImage("img/October/apostaksi.png");
+  // let element3 = loadImage("img/October/elies.png");
+  // let element4 = loadImage("img/October/pinelia1.png");
+  // let element5 = loadImage("img/October/pinelia2.png");
+  // let element6 = loadImage("img/October/figs.png");
+  // let element7 = loadImage("img/October/pinelia.png");
+  // let element8 = loadImage("img/October/pinelia6.png");
   // let element9 = loadImage("img/October/pinelia6.png");
+
+    let element0 = loadImage("img/November/November(1).jpg");
+  let element1 = loadImage("img/November/November(2).jpg");
+  let element2 = loadImage("img/November/November(3).jpg");
+
 
   elements = [
     element0,
     element1,
     element2,
-    element3,
-    element4,
-    element5,
-    element6,
-    element7,
-    element8,
+    // element3,
+    // element4,
+    // element5,
+    // element6,
+    // element7,
+    // element8,
   ];
 }
 

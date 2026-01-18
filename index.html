@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -14,14 +14,12 @@
     <div class="info">
       <div class="header">
         <h1>Calendar Generator</h1>
-        <p>use this tool to create custom calendars for the month</p>
-        <br />
-        <p>this is WIP, i am still developing it & evolving it as an idea</p>
-        <p>I have only collected data for September & October so far</p>
-        <br />
-        <p>
-          still haven't figure out how to make the random collages work well
-        </p>
+        <p>use this tool to generate custom calendars for the month</p>
+        <p>or to create your own. Change the colors to match your style.</p>
+        <br/>
+        <p>*best viewed on desktop</p>
+
+       
         <br />
         <form id="month-year-form">
           <!-- <label for="month-select">Month:</label> -->
@@ -52,12 +50,12 @@
         </form>
       </div>
       <div class="actions">
-        <button id="redraw">Redraw</button>
+        <!-- <button id="redraw">Redraw</button> -->
         <button id="random-color-btn">Change Colors</button>
 
-        <button id="toggle-seasonal-btn" class="secondary" aria-controls="seasonal-list" aria-expanded="true">
+        <!-- <button id="toggle-seasonal-btn" class="secondary" aria-controls="seasonal-list" aria-expanded="true">
           Hide Seasonal List
-        </button>
+        </button> -->
 
         <button id="upload-bg-btn" class="secondary">Upload Background</button>
         <button id="remove-bg-btn" class="secondary" style="display: none">
@@ -71,12 +69,14 @@
           aria-label="Upload calendar background image"
         />
         <button id="download-calendar">Download Calendar as A4 pdf</button>
-
+        <div class="footer-info">
         <p>use the resize handler to adjust the size</p>
+        <p>crafted by <a href="https://www.magarini.info/" target="_blank">magarini</a></p>
+      </div>
       </div>
     </div>
     <div class="calendar-layout">
-      <div id="seasonal-list"></div>
+      <!-- <div id="seasonal-list"></div> -->
       <div class="calendar-container">
         <div class="calendar">
           <h2>September 2025</h2>
@@ -300,7 +300,7 @@
             if (p5Canvas && hidCanvas) p5Canvas.style.visibility = "";
             console.error("Export failed:", err);
             alert(
-              "Export failed — see console. If you used local images on the canvas they may be blocking the export (CORS/taint). Try removing/hiding the canvas or use images served with CORS."
+              "Export failed — see console. If you used local images on the canvas they may be blocking the export (CORS/taint). Try removing/hiding the canvas or use images served with CORS.",
             );
           }
         });
@@ -354,24 +354,24 @@
 
           document.documentElement.style.setProperty(
             "--background-color",
-            bgColor
+            bgColor,
           );
           document.documentElement.style.setProperty("--text-color", textColor);
           document.documentElement.style.setProperty(
             "--background-button-color",
-            buttonColor
+            buttonColor,
           );
           document.documentElement.style.setProperty(
             "--th-background-color",
-            thBgColor
+            thBgColor,
           );
           document.documentElement.style.setProperty(
             "--td-background-color",
-            tdBgColor
+            tdBgColor,
           );
           document.documentElement.style.setProperty(
             "--calendar-background-color",
-            calendarBgColor
+            calendarBgColor,
           );
 
           // Set text color for th and td directly for accessibility
@@ -400,110 +400,149 @@
           e.preventDefault();
           const month = parseInt(
             document.getElementById("month-select").value,
-            10
+            10,
           );
           const year = parseInt(
             document.getElementById("year-select").value,
-            10
+            10,
           );
           generateCalendar(year, month);
-          // this.style.display = "none";
+
+          // Set background image based on selected month
+          const monthNum = String(month + 1).padStart(2, "0"); // Convert 0-11 to 01-12
+          const bgImagePath = `img/monthBackgrounds/${monthNum}.jpg`;
+          const calendarLayout = document.querySelector(".calendar-layout");
+          calendarLayout.style.backgroundImage = `url("${bgImagePath}")`;
+          calendarLayout.style.backgroundSize = "cover";
+          calendarLayout.style.backgroundPosition = "top";
+          calendarLayout.style.backgroundRepeat = "no-repeat";
         });
+
+      // Initialize calendar with current month and background on page load
+      window.addEventListener("DOMContentLoaded", function () {
+        const currentDate = new Date();
+        const currentMonth = currentDate.getMonth(); // 0-11
+        const currentYear = currentDate.getFullYear();
+
+        // Set form values to current month/year
+        document.getElementById("month-select").value = currentMonth;
+        document.getElementById("year-select").value = currentYear;
+
+        // Generate calendar for current month
+        generateCalendar(currentYear, currentMonth);
+
+        // Set background image for current month
+        const monthNum = String(currentMonth + 1).padStart(2, "0");
+        const bgImagePath = `img/monthBackgrounds/${monthNum}.jpg`;
+        const calendarLayout = document.querySelector(".calendar-layout");
+        calendarLayout.style.backgroundImage = `url("${bgImagePath}")`;
+        calendarLayout.style.backgroundSize = "cover";
+        calendarLayout.style.backgroundPosition = "top";
+        calendarLayout.style.backgroundRepeat = "no-repeat";
+      });
     </script>
 
-    <script src="sketch.js"></script>
+    <!-- <script src="sketch.js"></script> -->
     <script>
-  (function(){
-    const uploadBtn = document.getElementById('upload-bg-btn');
-    const removeBtn = document.getElementById('remove-bg-btn');
-    const fileInput = document.getElementById('bg-upload');
-    const calendarLayout = document.querySelector('.calendar-layout');
-    let currentBgUrl = null;
+      (function () {
+        const uploadBtn = document.getElementById("upload-bg-btn");
+        const removeBtn = document.getElementById("remove-bg-btn");
+        const fileInput = document.getElementById("bg-upload");
+        const calendarLayout = document.querySelector(".calendar-layout");
+        let currentBgUrl = null;
 
-    uploadBtn.addEventListener('click', () => fileInput.click());
+        uploadBtn.addEventListener("click", () => fileInput.click());
 
-    fileInput.addEventListener('change', (e) => {
-      const file = e.target.files && e.target.files[0];
-      if (!file) return;
-      if (!file.type.startsWith('image/')) {
-        alert('Please select an image file.');
-        return;
-      }
-      // revoke old URL
-      if (currentBgUrl) URL.revokeObjectURL(currentBgUrl);
-      currentBgUrl = URL.createObjectURL(file);
+        fileInput.addEventListener("change", (e) => {
+          const file = e.target.files && e.target.files[0];
+          if (!file) return;
+          if (!file.type.startsWith("image/")) {
+            alert("Please select an image file.");
+            return;
+          }
+          // revoke old URL
+          if (currentBgUrl) URL.revokeObjectURL(currentBgUrl);
+          currentBgUrl = URL.createObjectURL(file);
 
-      // Apply as background
-      calendarLayout.style.backgroundImage = `url("${currentBgUrl}")`;
-      calendarLayout.style.backgroundSize = 'cover';
-      calendarLayout.style.backgroundPosition = 'center center';
-      calendarLayout.style.backgroundRepeat = 'no-repeat';
-      calendarLayout.setAttribute('aria-label', `Calendar background: ${file.name}`);
+          // Apply as background
+          calendarLayout.style.backgroundImage = `url("${currentBgUrl}")`;
+          calendarLayout.style.backgroundSize = "cover";
+          calendarLayout.style.backgroundPosition = "top top";
+          calendarLayout.style.backgroundRepeat = "no-repeat";
+          calendarLayout.setAttribute(
+            "aria-label",
+            `Calendar background: ${file.name}`,
+          );
 
-      removeBtn.style.display = 'inline-block';
-    });
+          removeBtn.style.display = "inline-block";
+        });
 
-    removeBtn.addEventListener('click', () => {
-      if (currentBgUrl) {
-        URL.revokeObjectURL(currentBgUrl);
-        currentBgUrl = null;
-      }
-      calendarLayout.style.backgroundImage = '';
-      calendarLayout.removeAttribute('aria-label');
-      fileInput.value = '';
-      removeBtn.style.display = 'none';
-    });
+        removeBtn.addEventListener("click", () => {
+          if (currentBgUrl) {
+            URL.revokeObjectURL(currentBgUrl);
+            currentBgUrl = null;
+          }
+          calendarLayout.style.backgroundImage = "";
+          calendarLayout.removeAttribute("aria-label");
+          fileInput.value = "";
+          removeBtn.style.display = "none";
+        });
 
-    // NEW: when user clicks "Redraw" remove background and redraw the p5 canvas
-    document.getElementById('redraw').addEventListener('click', () => {
-      // remove uploaded background if any
-      if (currentBgUrl) {
-        URL.revokeObjectURL(currentBgUrl);
-        currentBgUrl = null;
-      }
-      calendarLayout.style.backgroundImage = '';
-      calendarLayout.removeAttribute('aria-label');
-      fileInput.value = '';
-      removeBtn.style.display = 'none';
+        // NEW: when user clicks "Redraw" remove background and redraw the p5 canvas
+        document.getElementById("redraw").addEventListener("click", () => {
+          // remove uploaded background if any
+          if (currentBgUrl) {
+            URL.revokeObjectURL(currentBgUrl);
+            currentBgUrl = null;
+          }
+          calendarLayout.style.backgroundImage = "";
+          calendarLayout.removeAttribute("aria-label");
+          fileInput.value = "";
+          removeBtn.style.display = "none";
 
-      // attempt to clear & redraw the p5 canvas (works in global mode)
-      try {
-        // clear any previous drawing and request redraw
-        if (typeof clear === 'function') clear();
-        if (typeof redraw === 'function') redraw();
-      } catch (err) {
-        // silent fail if p5 not ready
-        console.warn('p5 redraw failed:', err);
-      }
-    });
-  })();
-  </script>
-  <script>
-  // Toggle seasonal list visibility (accessible)
-  (function () {
-    const toggleBtn = document.getElementById("toggle-seasonal-btn");
-    const seasonal = document.getElementById("seasonal-list");
-    if (!toggleBtn || !seasonal) return;
+          // attempt to clear & redraw the p5 canvas (works in global mode)
+          try {
+            // clear any previous drawing and request redraw
+            if (typeof clear === "function") clear();
+            if (typeof redraw === "function") redraw();
+          } catch (err) {
+            // silent fail if p5 not ready
+            console.warn("p5 redraw failed:", err);
+          }
+        });
+      })();
+    </script>
+    <script>
+      // Toggle seasonal list visibility (accessible)
+      (function () {
+        const toggleBtn = document.getElementById("toggle-seasonal-btn");
+        const seasonal = document.getElementById("seasonal-list");
+        if (!toggleBtn || !seasonal) return;
 
-    // Ensure initial aria-hidden matches visible state
-    seasonal.setAttribute("aria-hidden", seasonal.style.display === "none" ? "true" : "false");
+        // Ensure initial aria-hidden matches visible state
+        seasonal.setAttribute(
+          "aria-hidden",
+          seasonal.style.display === "none" ? "true" : "false",
+        );
 
-    toggleBtn.addEventListener("click", () => {
-      const isHidden = seasonal.getAttribute("aria-hidden") === "true" || getComputedStyle(seasonal).display === "none";
+        toggleBtn.addEventListener("click", () => {
+          const isHidden =
+            seasonal.getAttribute("aria-hidden") === "true" ||
+            getComputedStyle(seasonal).display === "none";
 
-      if (isHidden) {
-        seasonal.style.display = ""; // restore default (flex from CSS)
-        seasonal.setAttribute("aria-hidden", "false");
-        toggleBtn.textContent = "Hide Seasonal List";
-        toggleBtn.setAttribute("aria-expanded", "true");
-      } else {
-        seasonal.style.display = "none";
-        seasonal.setAttribute("aria-hidden", "true");
-        toggleBtn.textContent = "Show Seasonal List";
-        toggleBtn.setAttribute("aria-expanded", "false");
-      }
-    });
-  })();
-</script>
+          if (isHidden) {
+            seasonal.style.display = ""; // restore default (flex from CSS)
+            seasonal.setAttribute("aria-hidden", "false");
+            toggleBtn.textContent = "Hide Seasonal List";
+            toggleBtn.setAttribute("aria-expanded", "true");
+          } else {
+            seasonal.style.display = "none";
+            seasonal.setAttribute("aria-hidden", "true");
+            toggleBtn.textContent = "Show Seasonal List";
+            toggleBtn.setAttribute("aria-expanded", "false");
+          }
+        });
+      })();
+    </script>
   </body>
 </html>
