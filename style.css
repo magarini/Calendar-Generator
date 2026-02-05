@@ -218,3 +218,15 @@ margin:16px 0;
 display:flex;
 justify-content: space-between;
 }
+
+@media screen and (max-width: 600px) {
+  body{
+    flex-direction: column;
+    height:auto
+  }
+
+  .info, .calendar-layout {
+    width: 100vw;
+    height:auto;
+  }
+}
